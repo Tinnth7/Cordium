@@ -23,7 +23,7 @@ Once downloaded, continue to the setup guide below to connect Cordium to your Di
 This guide walks you through setting up a Discord Bot to sync channel links with Cordium, as well as how to post links in Discord so Cordium parses them correctly.
 
 ### Caution
-You will need to be the server's owner in order to make the bot work.
+You will need permission to add a bot to the server and configure the channel permissions.
 
 ### Step 1: Create a Discord Application and Bot
 1. Open the [Discord Developer Portal](https://discord.com/developers/applications) and log in.
