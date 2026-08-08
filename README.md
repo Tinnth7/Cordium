@@ -30,6 +30,8 @@ This guide walks you through setting up a Discord Bot to sync channel links with
 3. Under **Bot Permissions**, check:
    - Read Messages/View Channels
    - Read Message History
+     (it should look like this, click to enlarge: <img width="10" height="10" alt="image" src="https://github.com/user-attachments/assets/3bd8e5e7-d6fb-4414-87f2-6ae2bc3c7af3" />)
+
 4. Copy the generated URL at the bottom of the page.
 5. Paste the URL into your browser, select your Discord server, and click **Authorize**.
 
