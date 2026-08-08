@@ -1,65 +1,70 @@
 # Cordium Setup Guide
 
-### This guide walks you through setting up a Discord Bot to sync channel links with Cordium. Total setup time is about 2 minutes.\
+This guide walks you through setting up a Discord Bot to sync channel links with Cordium, as well as how to post links in Discord so Cordium parses them correctly.
 
-Step 1: Create a Discord Application and Bot
+## Step 1: Create a Discord Application and Bot
 
-    Open the Discord Developer Portal and log in.
+1. Open the [Discord Developer Portal](https://discord.com/developers/applications) and log in.
+2. Click **New Application** at the top right.
+3. Name your application (e.g., `Cordium`) and click **Create**.
 
-    Click New Application at the top right.
+## Step 2: Enable Message Content Intent (Required)
 
-    Name your application (e.g., Cordium) and click Create.
+1. In the left sidebar, click **Bot**.
+2. Scroll down to the **Privileged Gateway Intents** section.
+3. Toggle **Message Content Intent** to ON.
+4. Click **Save Changes** at the bottom of the page.
 
-Step 2: Enable Message Content Intent (Required)
+> **Important:** If this setting is not enabled, Cordium cannot read message text or extract links from your channel.
 
-    In the left sidebar, click Bot.
+## Step 3: Get Your Bot Token
 
-    Scroll down to the Privileged Gateway Intents section.
+1. On the Bot page, locate the **Token** section near the top.
+2. Click **Reset Token** (or **Copy Token**).
+3. Copy the token string and save it safely. Treat this token like a password.
 
-    Toggle Message Content Intent to ON.
+## Step 4: Invite the Bot to Your Server
 
-    Click Save Changes at the bottom of the page.
+1. In the left sidebar, go to **OAuth2 -> URL Generator**.
+2. Under **Scopes**, check `bot`.
+3. Under **Bot Permissions**, check:
+   - Read Messages/View Channels
+   - Read Message History
+4. Copy the generated URL at the bottom of the page.
+5. Paste the URL into your browser, select your Discord server, and click **Authorize**.
 
-    Important: If this setting is not enabled, Cordium cannot read message text or extract links from your channel.
+## Step 5: Get Your Channel ID
 
-Step 3: Get Your Bot Token
+1. Open your Discord app or web client.
+2. Go to **User Settings -> Advanced**, and toggle **Developer Mode** to ON.
+3. Right-click the text channel where your links are posted.
+4. Click **Copy Channel ID**.
 
-    On the Bot page, locate the Token section near the top.
+## Step 6: Connect Cordium
 
-    Click Reset Token (or Copy Token).
+1. Launch `Cordium.exe`.
+2. Paste your Bot Token and Channel ID into the prompt.
+3. Click **Save & Connect**.
 
-    Copy the token string and save it safely. Treat this token like a password.
+## Step 7: How to Format Messages in Discord
 
-Step 4: Invite the Bot to Your Server
+To set a custom name for a link in Cordium, place the title inside square brackets `[ ]` anywhere in your Discord message alongside the URL.
 
-    In the left sidebar, go to OAuth2 -> URL Generator.
+### Recommended Format
 
-    Under Scopes, check bot.
+```
+[Link Title] https://example.com
+```
 
-    Under Bot Permissions, check:
+### Examples
 
-        Read Messages/View Channels
+- **Formatted Link:** `[PyQt6 Documentation] https://www.riverbankcomputing.com/software/pyqt/`
+  - Parsed Name: `PyQt6 Documentation`
+  - Parsed URL: `https://www.riverbankcomputing.com/software/pyqt/`
 
-        Read Message History
+- **Link with Additional Text:** `[Discord Developer Portal] Check out the portal here: https://discord.com/developers`
+  - Parsed Name: `Discord Developer Portal`
+  - Parsed URL: `https://discord.com/developers`
 
-    Copy the generated URL at the bottom of the page.
-
-    Paste the URL into your browser, select your Discord server, and click Authorize.
-
-Step 5: Get Your Channel ID
-
-    Open your Discord app or web client.
-
-    Go to User Settings -> Advanced, and toggle Developer Mode to ON.
-
-    Right-click the text channel where your links are posted.
-
-    Click Copy Channel ID.
-
-Step 6: Connect Cordium
-
-    Launch Cordium.exe.
-
-    Paste your Bot Token and Channel ID into the prompt.
-
-    Click Save & Connect.
+- **Raw Link (Fallback):** `https://github.com`
+  - Parsed Name: `https://github.com` (If no brackets are found, Cordium defaults to using the URL as the title.)
