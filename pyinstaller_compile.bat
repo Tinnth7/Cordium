@@ -1,0 +1,1 @@
+pyinstaller --noconsole --onefile --name="Cordium" cordium-dis.py
